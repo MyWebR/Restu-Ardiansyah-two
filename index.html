@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="mylogo.jpeg" type="image/jpeg" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
+    <title>Learn Code My Web</title>
+  </head>
+  <body>
+    <header class="transparent">
+      <div class="logo">
+        <a href="">
+          <img src="image/icon/mylogo.jpeg" alt="myLogo" />
+        </a>
+      </div>
+      <div class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#blog">Blog</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="right">
+        <!-- darkmode -->
+        <input type="checkbox" class="theme-checkbox" />
+        <!-- logo github -->
+        <div class="github">
+          <img src="image/icon/github.png" alt="GitHub" />
+        </div>
+        <!-- menu di mobile -->
+        <div class="menu" onclick="toggleNav()">
+          <img src="image/icon/menu.png" alt="Menu" />
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- HOME -->
+      <div class="home" id="home">
+        <div class="text">
+          <p>Welcome👋</p>
+          <h2>Hi, I'm <span style="color: #0ea5e9">Restu Ardiansyah</span></h2>
+          <div class="animasi_ketik">
+            <div class="mengetik">
+              <h2><span class="typing"></span></h2>
+            </div>
+          </div>
+          <div class="sosmed">
+            <a href="https://www.instagram.com/restuardyans/">
+              <img src="image/icon/instagram.png" alt="ig" />
+            </a>
+            <a href="https://www.tiktok.com/@restuardynsyh">
+              <img src="image/icon/tiktok.png" alt="ig" />
+            </a>
+            <a href="https://github.com/MyWebR">
+              <img src="image/icon/github.png" alt="ig" />
+            </a>
+          </div>
+        </div>
+        <div class="profile">
+          <img src="image/album/my.png" alt="my" />
+        </div>
+      </div>
+      <!-- ABOUT -->
+
+      <div class="about" id="about">
+        <div class="title-about">
+          <div class="garis-about"></div>
+          <p>About</p>
+          <div class="garis-about"></div>
+        </div>
+
+        <div class="aboutme">
+          <div class="garis-aboutme"></div>
+          <div class="pembungkus">
+            <div class="pp">
+              <img src="image/album/my.png" alt="" />
+            </div>
+            <div class="my-info">
+              <p class="short-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui
+                blanditiis exercitationem tempore excepturi repellat alias hic
+                eaque impedit quam magnam suscipit odio commodi quasi.
+              </p>
+              <p class="full-text hidden" id="banyak">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui
+                blanditiis exercitationem tempore excepturi repellat alias hic
+                eaque impedit quam magnam suscipit odio commodi quasi.
+              </p>
+              <button class="read-more-btn">Baca Selengkapnya</button>
+            </div>
+          </div>
+          <div class="garis-aboutme2"></div>
+        </div>
+
+        <!-- skils -->
+        <!-- skils 1 -->
+        <div class="title-skils">
+          <div class="garis-skils"></div>
+          <p>Skils</p>
+        </div>
+        <div class="skils">
+          <div class="skils-1-wrapper">
+            <div class="skils-1">
+              <div class="html">
+                <img src="image/skils/html.png" alt="Html" />
+                <p>Html</p>
+              </div>
+              <div class="css">
+                <img src="image/skils/css.png" alt="Css" />
+                <p>Css</p>
+              </div>
+              <div class="js">
+                <img src="image/skils/javascript.png" alt="JavaScript" />
+                <p>JavaScript</p>
+              </div>
+              <div class="cpp">
+                <img src="image/skils/c.png" alt="C++" />
+                <p>C++</p>
+              </div>
+              <div class="php">
+                <img src="image/skils/php.png" alt="PHP" />
+                <p>PHP</p>
+              </div>
+              <!-- Duplicate the items to create the continuous scrolling effect -->
+              <div class="html">
+                <img src="image/skils/html.png" alt="Html" />
+                <p>Html</p>
+              </div>
+              <div class="css">
+                <img src="image/skils/css.png" alt="Css" />
+                <p>Css</p>
+              </div>
+              <div class="js">
+                <img src="image/skils/javascript.png" alt="JavaScript" />
+                <p>JavaScript</p>
+              </div>
+              <div class="cpp">
+                <img src="image/skils/c.png" alt="C++" />
+                <p>C++</p>
+              </div>
+              <div class="php">
+                <img src="image/skils/php.png" alt="PHP" />
+                <p>PHP</p>
+              </div>
+            </div>
+          </div>
+          <!-- SKILS 2 -->
+          <div class="title-skils2">
+            <div class="garis-skils2"></div>
+            <p>Framework</p>
+          </div>
+          <div class="skils-2-wrapper">
+            <div class="skils-2">
+              <div class="bootstrap">
+                <img src="image/skils/bootstrap.png" alt="bootstrap" />
+                <p>Bootstrap</p>
+              </div>
+              <div class="tailwindcss">
+                <img src="image/skils/tailwind-css.png" alt="tailwind-css" />
+                <p>Tailwindcss</p>
+              </div>
+              <div class="laravel">
+                <img src="image/skils/laravel.png" alt="laravel" />
+                <p>Laravel</p>
+              </div>
+              <div class="nodejs">
+                <img src="image/skils/nodejs.png" alt="nodejs" />
+                <p>Node Js</p>
+              </div>
+              <div class="react">
+                <img src="image/skils/react.png" alt="docker" />
+                <p>React</p>
+              </div>
+              <!-- Duplicate the items to create the continuous scrolling effect -->
+              <div class="bootstrap">
+                <img src="image/skils/bootstrap.png" alt="bootstrap" />
+                <p>Bootstrap</p>
+              </div>
+              <div class="tailwindcss">
+                <img src="image/skils/tailwind-css.png" alt="tailwind-css" />
+                <p>Tailwindcss</p>
+              </div>
+              <div class="laravel">
+                <img src="image/skils/laravel.png" alt="laravel" />
+                <p>Laravel</p>
+              </div>
+              <div class="nodejs">
+                <img src="image/skils/nodejs.png" alt="nodejs" />
+                <p>Node Js</p>
+              </div>
+              <div class="react">
+                <img src="image/skils/react.png" alt="docker" />
+                <p>React</p>
+              </div>
+            </div>
+          </div>
+          <!-- SKILS 3 -->
+          <div class="title-skils3">
+            <div class="garis-skils3"></div>
+            <p>Tools</p>
+          </div>
+          <div class="skils-3-wrapper">
+            <div class="skils-3">
+              <div class="vscode">
+                <img src="image/skils/vs-code.png" alt="vscode" />
+                <p>VS Code</p>
+              </div>
+              <div class="git">
+                <img src="image/skils/git.png" alt="git" />
+                <p>Git</p>
+              </div>
+              <div class="github-skils">
+                <img src="image/skils/github.png" alt="Github" />
+                <p>Github</p>
+              </div>
+
+              <div class="docker">
+                <img src="image/skils/docker.png" alt="Docker" />
+                <p>Docker</p>
+              </div>
+
+              <div class="figma">
+                <img src="image/skils/figma.png" alt="FIgma" />
+                <p>FIgma</p>
+              </div>
+              <!-- Duplicate the items to create the continuous scrolling effect -->
+              <div class="vscode">
+                <img src="image/skils/vs-code.png" alt="vscode" />
+                <p>VS Code</p>
+              </div>
+              <div class="git">
+                <img src="image/skils/git.png" alt="git" />
+                <p>Git</p>
+              </div>
+              <div class="github-skils">
+                <img src="image/skils/github.png" alt="Github" />
+                <p>Github</p>
+              </div>
+
+              <div class="docker">
+                <img src="image/skils/docker.png" alt="Docker" />
+                <p>Docker</p>
+              </div>
+
+              <div class="figma">
+                <img src="image/skils/figma.png" alt="FIgma" />
+                <p>FIgma</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <!--  -->
+    </div>
+  </body>
+</html>
+<!-- Tautkan file JavaScript eksternal -->
+<script src="script.js"></script>

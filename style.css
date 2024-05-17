@@ -1,0 +1,832 @@
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* font */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: #f1f5f9;
+  background-color: #020617;
+}
+
+header {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 20px;
+  position: fixed; /* Membuat header tetap di atas saat di-scroll */
+  top: 0; /* Atur header di bagian atas halaman */
+  width: 100%; /* Lebar header sesuai dengan lebar layar */
+  z-index: 1000; /* Mengatur z-index agar header tetap di atas konten */
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+header.transparent {
+  background-color: transparent;
+  backdrop-filter: none;
+}
+
+header.scrolled {
+  background-color: rgba(0, 0, 0, 0.1); /* Hitam transparan 50% */
+  backdrop-filter: blur(5px); /* Efek blur */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo img {
+  height: 30px;
+  width: auto;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+.nav {
+  margin-top: -20px;
+  display: flex; /* Tampilkan nav di mode desktop */
+}
+
+.nav.active {
+  display: flex; /* Tampilkan nav saat kelas active ditambahkan */
+  flex-direction: column; /* Tampilkan nav dalam kolom */
+  position: absolute; /* Mengatur posisi absolut untuk tampilan popup */
+  top: 90px; /* Atur jarak dari header */
+  padding: 10px;
+  width: auto; /* Lebar 100% dari layar */
+  padding-right: 70px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  right: 55px; /* Atur posisi di sebelah kanan */
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Hitam transparan 50% */
+  backdrop-filter: blur(5px); /* Efek blur */
+}
+
+.nav.active a {
+  margin: 7px;
+}
+
+.nav a {
+  margin-bottom: 5px;
+  margin: 15px;
+  color: #0ea5e9;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  position: relative; /* Mengatur posisi relatif untuk mengatur garis bawah */
+  transition: color 0.3s ease; /* Menambahkan transisi untuk perubahan warna */
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Menyembunyikan garis bawah saat tidak di-hover */
+  width: auto;
+  height: 4px; /* Ketebalan garis */
+  border-radius: 10px;
+  background-color: #0ea5e9;
+  animation: borderAppear 0.3s ease-in-out forwards; /* Menambahkan animasi */
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* css button darkmode */
+.theme-checkbox {
+  --toggle-size: 6px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 6.25em;
+  height: 3.125em;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      color-stop(50%, #efefef),
+      color-stop(50%, #2a2a2a)
+    )
+    no-repeat;
+  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background-size: 205%;
+  background-position: 0;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 99em;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--toggle-size);
+}
+
+.theme-checkbox::before {
+  content: "";
+  width: 2.25em;
+  height: 2.25em;
+  position: absolute;
+  top: 0.438em;
+  left: 0.438em;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      color-stop(50%, #efefef),
+      color-stop(50%, #2a2a2a)
+    )
+    no-repeat;
+  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background-size: 205%;
+  background-position: 100%;
+  border-radius: 50%;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.theme-checkbox:checked::before {
+  left: calc(100% - 2.25em - 0.438em);
+  background-position: 0;
+}
+
+.theme-checkbox:checked {
+  background-position: 100%;
+}
+
+/* logo github */
+.github {
+  border-radius: 50%;
+}
+
+.github img {
+  margin-left: 10px;
+  margin-right: 40px;
+  height: 30px;
+  width: auto;
+}
+
+@keyframes borderAppear {
+  from {
+    width: 0; /* Awal animasi lebar 0 */
+  }
+  to {
+    width: 100%; /* Akhir animasi lebar 100% */
+  }
+}
+
+.menu {
+  margin-right: 30px;
+  display: none; /* Sembunyikan menu di mode desktop */
+}
+
+.menu img {
+  margin-left: 10px;
+  cursor: pointer;
+  height: 40px;
+  width: auto;
+}
+
+/* content */
+.content {
+  padding: 10px;
+}
+
+/* home */
+.home {
+  margin-top: 140px;
+  padding: 0 200px 0 200px;
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.text.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.text p {
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.text h2 {
+  font-size: 30px;
+  margin-bottom: -20px;
+}
+
+.typing {
+  margin-top: -20px;
+  font-size: 25px;
+}
+
+.sosmed {
+  display: flex;
+  margin-top: 50px;
+}
+
+.sosmed img {
+  margin-right: 20px;
+  height: 30px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.sosmed img:hover {
+  filter: grayscale(0%);
+}
+
+.profile {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease-out, transform 1000ms ease-out;
+}
+
+.profile.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profile img {
+  margin-top: 20px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid;
+  border-color: #0ea5e9;
+  box-shadow: 0px 0px 10px #0ea5e9;
+}
+
+/* ABOUT */
+
+.about {
+  margin-top: 170px;
+  padding: 0 200px 0 200px;
+  height: 100%;
+  width: auto;
+}
+
+.title-about {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.garis-about {
+  width: 30px;
+  height: 5px;
+  background-color: #0ea5e9;
+  border-radius: 10px;
+}
+
+.title-about p {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #0ea5e9;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+.garis-aboutme {
+  width: 30px;
+  height: 5px;
+  background-color: #0ea5e9;
+  border-radius: 10px;
+}
+
+.garis-aboutme2 {
+  margin-left: 93%;
+  width: 30px;
+  height: 5px;
+  background-color: #0ea5e9;
+  border-radius: 10px;
+}
+
+.aboutme {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.aboutme.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.aboutme {
+  background-color: #0d1425;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 1px 1px 19px 11px rgba(0, 0, 0, 0.31) inset;
+  -webkit-box-shadow: 1px 1px 19px 11px rgba(0, 0, 0, 0.31) inset;
+  -moz-box-shadow: 1px 1px 19px 11px rgba(0, 0, 0, 0.31) inset;
+}
+
+.pembungkus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pp {
+  padding: 0 0 0 20px;
+  opacity: 0;
+  transform: translateY(-200px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.pp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pp img {
+  background-color: #020617;
+  margin-left: -20px;
+  margin-right: 20px;
+  height: 280px;
+
+  border-radius: 100%;
+  box-shadow: 1px 1px 19px 11px rgba(0, 0, 0, 0.31) inset;
+  -webkit-box-shadow: 1px 1px 19px 11px rgba(0, 0, 0, 0.31) inset;
+  -moz-box-shadow: 1px 1px 19px 11px rgba(0, 0, 0, 0.31) inset;
+}
+
+.my-info {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.my-info.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Sembunyikan teks lengkap secara default */
+.full-text.hidden {
+  display: none;
+}
+
+#banyak {
+  margin-top: -15px;
+}
+
+.read-more-btn {
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  background-color: #0ea5e9;
+}
+
+.title-skils {
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.title-skils2,
+.title-skils3 {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.garis-skils,
+.garis-skils2,
+.garis-skils3 {
+  width: 30px;
+  height: 5px;
+  background-color: #0ea5e9;
+  border-radius: 10px;
+}
+
+.title-skils p,
+.title-skils2 p,
+.title-skils3 p {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #0ea5e9;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+/* General styles */
+.skils-1-wrapper p,
+.skils-2-wrapper p,
+.skils-3-wrapper p {
+  font-weight: bold;
+}
+
+.html,
+.css,
+.js,
+.cpp,
+.php,
+.bootstrap,
+.tailwindcss,
+.laravel,
+.nodejs,
+.react,
+.vscode,
+.github-skils,
+.git,
+.docker,
+.figma {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skils-1 img,
+.skils-2 img,
+.skils-3 img {
+  margin-right: 10px;
+}
+
+/* Wrapper to ensure the overflow is hidden */
+
+.skils-1-wrapper,
+.skils-2-wrapper,
+.skils-3-wrapper {
+  width: 100%;
+  overflow: hidden;
+  animation: moveLeft 20s linear infinite;
+}
+
+.skils-1,
+.skils-2,
+.skils-3 {
+  display: flex;
+}
+
+.skils-1 {
+  animation: marquee-left 20s linear infinite; /* Adjust the duration as needed */
+}
+
+.skils-2 {
+  animation: marquee-right 20s linear infinite; /* Adjust the duration as needed */
+}
+
+.skils-3 {
+  animation: marquee-left 20s linear infinite; /* Adjust the duration as needed */
+}
+
+.skils-1 div,
+.skils-2 div,
+.skils-3 div {
+  flex: 0 0 auto; /* Ensure the items do not shrink or grow */
+  margin-right: 20px; /* Adjust the spacing between items */
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-123%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-123%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Styling for the skill items */
+.skils-1 div img,
+.skils-2 div img,
+.skils-3 div img {
+  width: 30px; /* Adjust as necessary */
+  height: 30px; /* Adjust as necessary */
+}
+
+.skils-1 div p,
+.skils-2 div p,
+.skils-3 p {
+  text-align: center;
+}
+
+/* skils 1 */
+.html,
+.css,
+.js,
+.cpp,
+.php {
+  display: flex;
+  height: auto;
+  width: 150px;
+  align-items: center;
+  padding: 0 50px;
+  border-radius: 10px;
+  margin: 0 20px 0 0;
+}
+
+/* skils 2 */
+.bootstrap,
+.tailwindcss,
+.laravel,
+.nodejs,
+.react {
+  display: flex;
+  height: auto;
+  width: 150px;
+  align-items: center;
+  padding: 0 50px;
+  border-radius: 10px;
+  margin: 0 20px 0 0;
+}
+
+/* skils 3 */
+.vscode,
+.github-skils,
+.git,
+.docker,
+.figma {
+  display: flex;
+  height: auto;
+  width: 150px;
+  align-items: center;
+  padding: 0 50px;
+  border-radius: 10px;
+  margin: 0 20px 0 0;
+}
+
+/* skils 1 */
+.html {
+  background-color: rgb(255, 68, 0);
+}
+
+.css {
+  background-color: rgb(0, 81, 255);
+}
+
+.js {
+  background-color: #facc15;
+}
+
+.cpp {
+  background-color: #0369a1;
+}
+
+.php {
+  background-color: #0284c7;
+}
+
+/* skils 2 */
+.bootstrap {
+  background-color: #6b21a8;
+}
+
+.tailwindcss {
+  background-color: #0ea5e9;
+}
+
+.laravel {
+  background-color: #d31837;
+}
+
+.nodejs {
+  background-color: #22c55e;
+}
+
+.react {
+  background-color: #22d3ee;
+}
+
+/* skils 3 */
+.vscode {
+  background-color: #0ea5e9;
+}
+
+.github-skils {
+  background-color: #b4b4b4;
+}
+
+.git {
+  background-color: #dc2626;
+}
+
+.docker {
+  background-color: #22d3ee;
+}
+
+.figma {
+  background-color: #082f49;
+}
+
+/* blog */
+.blog {
+  height: 100vh;
+}
+
+/* conatct */
+.contact {
+  height: 100vh;
+}
+
+/* Tablets (medium screens, 768px - 1023px) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .home {
+    padding: 50px;
+  }
+
+  .about {
+    padding: 50px;
+  }
+
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-193.5%);
+    }
+  }
+
+  @keyframes marquee-right {
+    from {
+      transform: translateX(-193.5%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+/* Media queries untuk mode mobile */
+@media screen and (max-width: 768px) {
+  /* navbar */
+  .menu {
+    display: block; /* Tampilkan menu di mode mobile */
+  }
+
+  .nav {
+    display: none; /* Sembunyikan nav di mode mobile */
+  }
+
+  .logo {
+    display: flex;
+  }
+
+  .github {
+    display: none;
+  }
+
+  /* home */
+  .home {
+    display: block;
+    margin-top: 70px;
+    padding: 20px;
+  }
+
+  .text {
+    margin-top: 60px;
+  }
+
+  .text p {
+    font-size: 20px;
+    margin-bottom: -20px;
+  }
+
+  .text h2 {
+    font-size: 25px;
+  }
+
+  .profile {
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .profile img {
+    text-align: center;
+    height: 250px;
+  }
+
+  header {
+    justify-content: space-between;
+  }
+
+  /* ABOUT */
+  .about {
+    margin-top: 160px;
+    padding: 20px;
+  }
+
+  .title-about {
+    display: flex;
+  }
+
+  .pembungkus {
+    display: block;
+  }
+
+  .pp {
+    padding: 0;
+    text-align: center;
+  }
+
+  .pp img {
+    margin-left: 0;
+    margin-right: 0;
+    height: 200px;
+    text-align: center;
+  }
+
+  .skils-1 div img,
+  .skils-2 div img,
+  .skils-3 div img {
+    height: 20px; /* Adjust as necessary */
+    width: auto; /* Adjust as necessary */
+  }
+
+  .skils-1 div p,
+  .skils-2 div p,
+  .skils-3 p {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  /* skils 1 */
+  .html,
+  .css,
+  .js,
+  .cpp,
+  .php {
+    width: 120px;
+    padding: 0 20px;
+    margin: 0 10px 0 0;
+  }
+
+  /* skils 2 */
+  .bootstrap,
+  .tailwindcss,
+  .laravel,
+  .nodejs,
+  .react {
+    width: 120px;
+    padding: 0 20px;
+    margin: 0 10px 0 0;
+  }
+
+  /* skils 3 */
+  .vscode,
+  .github-skils,
+  .git,
+  .docker,
+  .figma {
+    width: 120px;
+    padding: 0 20px;
+    margin: 0 10px 0 0;
+  }
+
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-215.5%);
+    }
+  }
+
+  @keyframes marquee-right {
+    from {
+      transform: translateX(-215.5%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
