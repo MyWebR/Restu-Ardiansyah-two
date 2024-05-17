@@ -23,20 +23,32 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // -------------------------------------------------
 
-
-// Toggle navigation menu (existing code)
-function toggleNav() {
+document.addEventListener('DOMContentLoaded', function() {
   var nav = document.querySelector('.nav');
   var menuIcon = document.querySelector('.menu img');
-  
-  if (nav.classList.contains('active')) {
+
+  function toggleNav() {
+    if (nav.classList.contains('active')) {
       nav.classList.remove('active');
+      nav.classList.add('inactive');
       menuIcon.src = 'image/icon/menu.png';
-  } else {
+      
+      // Ensure the element is hidden after the animation ends
+      setTimeout(() => {
+        nav.style.visibility = 'hidden';
+      }, 500); // Match the transition duration
+    } else {
+      nav.classList.remove('inactive');
       nav.classList.add('active');
+      nav.style.visibility = 'visible';
       menuIcon.src = 'image/icon/close.png';
+    }
   }
-}
+
+  document.querySelector('.menu').addEventListener('click', toggleNav);
+});
+
+
 // ------------------------------------------------
 
 //  animasi ketik
