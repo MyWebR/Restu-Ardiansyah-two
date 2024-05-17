@@ -58,62 +58,31 @@ header.scrolled {
   display: flex; /* Tampilkan nav di mode desktop */
 }
 
-
-.nav {
-  display: none; /* Initially hidden */
-  flex-direction: column;
-  position: absolute;
-  top: 90px;
-  padding: 20px;
-  width: auto;
-  right: -100%; /* Start outside the viewport */
-  border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-}
-
 .nav.active {
-  display: flex;
-  animation: slideFromRight 0.5s ease forwards;
+  display: flex; /* Tampilkan nav saat kelas active ditambahkan */
+  flex-direction: column; /* Tampilkan nav dalam kolom */
+  position: absolute; /* Mengatur posisi absolut untuk tampilan popup */
+  top: 90px; /* Atur jarak dari header */
+  padding: 10px;
+  width: auto; /* Lebar 100% dari layar */
+  padding-right: 70px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  right: 55px; /* Atur posisi di sebelah kanan */
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Hitam transparan 50% */
+  backdrop-filter: blur(5px); /* Efek blur */
 }
-
-.nav.inactive {
-  display: flex;
-  animation: slideToRight 0.5s ease forwards;
-}
-
-@keyframes slideFromRight {
-  from {
-    right: -100%;
-  }
-  to {
-    right: 55px;
-  }
-}
-
-@keyframes slideToRight {
-  from {
-    right: 55px;
-  }
-  to {
-    right: -100%;
-  }
-}
-
 
 .nav.active a {
-  margin: 7px;
-}
-
-.nav.inactive a {
   margin: 7px;
 }
 
 .nav a {
   margin-bottom: 5px;
   margin: 15px;
-  color: #0ea5e9;
+  color: #6b7280;
   font-weight: 500;
   font-size: 15px;
   text-decoration: none;
@@ -132,6 +101,10 @@ header.scrolled {
   border-radius: 10px;
   background-color: #0ea5e9;
   animation: borderAppear 0.3s ease-in-out forwards; /* Menambahkan animasi */
+}
+
+.nav a:hover {
+  color: #0ea5e9;
 }
 
 .right {
