@@ -73,6 +73,7 @@ header.scrolled {
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.5); /* Hitam transparan 50% */
   backdrop-filter: blur(5px); /* Efek blur */
+
 }
 
 .nav.active a {
@@ -100,80 +101,12 @@ header.scrolled {
   height: 4px; /* Ketebalan garis */
   border-radius: 10px;
   background-color: #0ea5e9;
-  animation: borderAppear 0.3s ease-in-out forwards; /* Menambahkan animasi */
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+
 }
 
 .nav a:hover {
   color: #0ea5e9;
-}
-
-.right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* css button darkmode */
-.theme-checkbox {
-  --toggle-size: 6px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 6.25em;
-  height: 3.125em;
-  background: -webkit-gradient(
-      linear,
-      left top,
-      right top,
-      color-stop(50%, #efefef),
-      color-stop(50%, #2a2a2a)
-    )
-    no-repeat;
-  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
-  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
-  background-size: 205%;
-  background-position: 0;
-  -webkit-transition: 0.4s;
-  -o-transition: 0.4s;
-  transition: 0.4s;
-  border-radius: 99em;
-  position: relative;
-  cursor: pointer;
-  font-size: var(--toggle-size);
-}
-
-.theme-checkbox::before {
-  content: "";
-  width: 2.25em;
-  height: 2.25em;
-  position: absolute;
-  top: 0.438em;
-  left: 0.438em;
-  background: -webkit-gradient(
-      linear,
-      left top,
-      right top,
-      color-stop(50%, #efefef),
-      color-stop(50%, #2a2a2a)
-    )
-    no-repeat;
-  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
-  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
-  background-size: 205%;
-  background-position: 100%;
-  border-radius: 50%;
-  -webkit-transition: 0.4s;
-  -o-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.theme-checkbox:checked::before {
-  left: calc(100% - 2.25em - 0.438em);
-  background-position: 0;
-}
-
-.theme-checkbox:checked {
-  background-position: 100%;
 }
 
 /* logo github */
@@ -188,14 +121,6 @@ header.scrolled {
   width: auto;
 }
 
-@keyframes borderAppear {
-  from {
-    width: 0; /* Awal animasi lebar 0 */
-  }
-  to {
-    width: 100%; /* Akhir animasi lebar 100% */
-  }
-}
 
 .menu {
   margin-right: 30px;
@@ -267,10 +192,11 @@ header.scrolled {
   filter: grayscale(0%);
 }
 
+
 .profile {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 2s ease-out, transform 1000ms ease-out;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .profile.visible {
@@ -711,6 +637,8 @@ header.scrolled {
 
   /* home */
   .home {
+    height: 100%;
+    width: auto;
     display: block;
     margin-top: 70px;
     padding: 20px;
@@ -735,7 +663,6 @@ header.scrolled {
   }
 
   .profile img {
-    text-align: center;
     height: 250px;
   }
 
