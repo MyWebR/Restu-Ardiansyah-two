@@ -192,3 +192,64 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ------------------------------------------------------------------------
+
+
+// blur gambar pada class blog
+document.addEventListener("DOMContentLoaded", function () {
+  const imgBlog1 = document.querySelector('.img-blog-1');
+  const imgBlog2_1 = document.querySelector('.img-blog-2-1');
+  const imgBlog2_2 = document.querySelector('.img-blog-2-2');
+  const imgBlog2_3 = document.querySelector('.img-blog-2-3');
+
+  // Function to add the 'img-blur' class
+  const blurImage = (entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        entry.target.classList.add('img-blur');
+      } else {
+        entry.target.classList.remove('img-blur');
+      }
+    });
+  };
+
+  // Create an IntersectionObserver for each image element
+  const observer1 = new IntersectionObserver(blurImage, { threshold: 0 });
+  const observer2_1 = new IntersectionObserver(blurImage, { threshold: 0 });
+  const observer2_2 = new IntersectionObserver(blurImage, { threshold: 0 });
+  const observer2_3 = new IntersectionObserver(blurImage, { threshold: 0 });
+
+  // Start observing the image elements
+  observer1.observe(imgBlog1);
+  observer2_1.observe(imgBlog2_1);
+  observer2_2.observe(imgBlog2_2);
+  observer2_3.observe(imgBlog2_3);
+});
+
+// ------------------------------------------------------------
+
+
+// efek blog 1 ke 2
+document.addEventListener("DOMContentLoaded", function () {
+  const contentBlog2 = document.querySelector('.content-blog-2');
+  
+  // Function to add the 'visible' class
+  const showContentBlog2 = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  };
+
+  // Create an IntersectionObserver
+  const observer = new IntersectionObserver(showContentBlog2, {
+    threshold: 0.1 // Trigger when 10% of the element is in the viewport
+  });
+
+  // Start observing the content-blog-2 element
+  observer.observe(contentBlog2);
+});
+
+// ------------------------------------------------------------------------
