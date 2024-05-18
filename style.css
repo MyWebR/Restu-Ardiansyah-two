@@ -103,7 +103,7 @@ header.scrolled {
   animation: borderAppear 0.3s ease-in-out forwards; /* Menambahkan animasi */
 }
 
-.nav a:hover {
+.nav a:hover  {
   color: #0ea5e9;
 }
 
@@ -830,12 +830,25 @@ header.scrolled {
 /* Media queries untuk mode mobile */
 @media screen and (max-width: 768px) {
   /* navbar */
+header {
+  padding: 10px;
+}
+
+
+ 
   .menu {
     display: block; /* Tampilkan menu di mode mobile */
+    margin-right: 10px;
+
   }
 
   .nav {
     display: none; /* Sembunyikan nav di mode mobile */
+  }
+
+  .nav.nav.active {
+  right: 30px; /* Atur posisi di sebelah kanan */
+
   }
 
   .logo {

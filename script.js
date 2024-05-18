@@ -24,6 +24,43 @@ document.addEventListener('DOMContentLoaded', function() {
 // -------------------------------------------------
 
 
+// nav hover otomatis
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll('.nav a');
+
+  // Function to toggle active class based on scroll position
+  const toggleActiveClass = () => {
+    const scrollPosition = window.scrollY;
+
+    // Add or remove active class based on scroll position
+    navLinks.forEach(link => {
+      const sectionId = link.getAttribute('href').substring(1);
+      const section = document.getElementById(sectionId);
+      if (section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  };
+// -------------------------------------------------------
+
+
+  // Add scroll event listener
+  window.addEventListener('scroll', toggleActiveClass);
+
+  // Add hover event listener
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      link.classList.add('hover');
+    });
+    link.addEventListener('mouseleave', () => {
+      link.classList.remove('hover');
+    });
+  });
+});
+
+
 // Toggle navigation menu (existing code)
 function toggleNav() {
   var nav = document.querySelector('.nav');
