@@ -103,7 +103,7 @@ header.scrolled {
   animation: borderAppear 0.3s ease-in-out forwards; /* Menambahkan animasi */
 }
 
-.nav a:hover  {
+.nav a:hover {
   color: #0ea5e9;
 }
 
@@ -588,7 +588,6 @@ header.scrolled {
 /* blog */
 .blog {
   margin-top: 200px;
-  margin-bottom: 200px;
   padding: 0 200px;
   height: 100%;
   width: auto;
@@ -788,9 +787,175 @@ header.scrolled {
   background-color: white;
 }
 
-/* conatct */
-.contact {
-  height: 100vh;
+/* PROJECT */
+.project {
+  padding: 0 200px 0 200px;
+  margin-top: 200px;
+  display: flex;
+  flex-wrap: wrap; /* Membungkus elemen jika tidak muat dalam satu baris */
+  gap: 20px; /* Jarak antar elemen */
+}
+
+.project > div {
+  flex: 1 1 calc(50% - 20px); /* Setiap elemen mengambil 50% lebar dengan jarak */
+  box-sizing: border-box; /* Pastikan padding dan border dihitung dalam lebar total */
+}
+
+.img-project-1 img,
+.img-project-2 img,
+.img-project-3 img,
+.img-project-4 img {
+  width: 100%; /* Mengatur lebar gambar 100% dari kontainernya */
+  height: auto; /* Mengatur tinggi gambar secara otomatis */
+  border-radius: 10px; /* Border radius untuk gambar */
+}
+
+/* CONTENT-PROJECT-1 */
+.img-project-1,
+.img-project-2,
+.img-project-3,
+.img-project-4 {
+  position: relative;
+  overflow: hidden; /* Agar gambar yang membesar tidak keluar dari container */
+  border-radius: 10px; /* Border radius untuk gambar */
+}
+
+.img-project-1 img,
+.img-project-2 img,
+.img-project-3 img,
+.img-project-4 img {
+  width: 100%; /* Mengatur lebar gambar 100% dari kontainernya */
+  height: auto; /* Mengatur tinggi gambar secara otomatis */
+  filter: blur(5px); /* Membuat gambar blur */
+  transition: filter 0.3s ease, transform 0.3s ease; /* Animasi untuk filter dan transform */
+  border-radius: inherit; /* Mengambil border radius dari parent */
+}
+
+.img-project-1:hover img,
+.img-project-2:hover img,
+.img-project-3:hover img,
+.img-project-4:hover img {
+  filter: blur(0); /* Menghilangkan blur saat di-hover */
+  filter: grayscale(0);
+  transform: scale(1.1); /* Membesarkan gambar sedikit */
+}
+
+.icon-container-1,
+.icon-container-2,
+.icon-container-3,
+.icon-container-4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Animasi untuk munculnya ikon */
+}
+
+.img-project-1:hover .icon-container-1,
+.img-project-2:hover .icon-container-2,
+.img-project-3:hover .icon-container-3,
+.img-project-4:hover .icon-container-4 {
+  opacity: 1; /* Menampilkan ikon saat di-hover */
+}
+
+.icon-container-1 img,
+.icon-container-2 img,
+.icon-container-3 img,
+.icon-container-4 img {
+  height: 50%;
+  width: auto;
+}
+
+.view-icon-1,
+.view-icon-2,
+.view-icon-3,
+.view-icon-4 {
+  width: 50px; /* Sesuaikan ukuran ikon */
+  height: 50px; /* Sesuaikan ukuran ikon */
+}
+
+/* popup-1 */
+.popup-project-1,
+.popup-project-2,
+.popup-project-3,
+.popup-project-4 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  justify-content: center; /* Center the popup */
+  align-items: center; /* Center the popup */
+}
+
+/* Popup content */
+.popup-content-1,
+.popup-content-2,
+.popup-content-3,
+.popup-content-4 {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Close button */
+.close-popup-1,
+.close-popup-2,
+.close-popup-3,
+.close-popup-4 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-popup-1:hover,
+.close-popup-1:focus,
+.close-popup-2:hover,
+.close-popup-2:focus .close-popup-3:hover,
+.close-popup-3:focus .close-popup-4:hover,
+.close-popup-4:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Element popup-1 */
+.content-img-popup-1,
+.content-img-popup-2,
+.content-img-popup-3,
+.content-img-popup-4 {
+  height: auto;
+  width: 100%;
+}
+
+.content-img-popup-1 img,
+.content-img-popup-2 img,
+.content-img-popup-3 img,
+.content-img-popup-4 img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.content-text-popup-1,
+.content-text-popup-2,
+.content-text-popup-3,
+.content-text-popup-4 {
+  font-weight: 500;
+  text-align: left;
+  padding: 10px 0;
 }
 
 /* Tablets (medium screens, 768px - 1023px) */
@@ -825,21 +990,31 @@ header.scrolled {
   .blog {
     padding: 0 50px; /* Mengubah padding menjadi 10px */
   }
+
+  /* PROJECT */
+  .project {
+    padding: 0 50px;
+    display: flex;
+    flex-wrap: wrap; /* Membungkus elemen jika tidak muat dalam satu baris */
+    gap: 20px; /* Jarak antar elemen */
+  }
+
+  .project > div {
+    flex: 1 1 calc(50% - 20px); /* Setiap elemen mengambil 50% lebar dengan jarak */
+    box-sizing: border-box; /* Pastikan padding dan border dihitung dalam lebar total */
+  }
 }
 
 /* Media queries untuk mode mobile */
 @media screen and (max-width: 768px) {
   /* navbar */
-header {
-  padding: 10px;
-}
+  header {
+    padding: 10px;
+  }
 
-
- 
   .menu {
     display: block; /* Tampilkan menu di mode mobile */
     margin-right: 10px;
-
   }
 
   .nav {
@@ -847,8 +1022,7 @@ header {
   }
 
   .nav.nav.active {
-  right: 30px; /* Atur posisi di sebelah kanan */
-
+    right: 30px; /* Atur posisi di sebelah kanan */
   }
 
   .logo {
@@ -1053,5 +1227,51 @@ header {
 
   .text-img-blog-2-1 p {
     font-size: 12px; /* Ubah ukuran font */
+  }
+
+  /* PROJECT */
+  .project {
+    padding: 10px;
+    flex-direction: column; /* Mengatur elemen dalam kolom */
+    gap: 10px; /* Jarak antar elemen */
+  }
+
+  .project > div {
+    flex: 1 1 100%; /* Setiap elemen mengambil lebar penuh */
+  }
+
+  .popup-project-1 {
+    padding: 10px;
+  }
+
+  .popup-content-1 {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .popup-project-2 {
+    padding: 10px;
+  }
+
+  .popup-content-2 {
+    width: 95%;
+    padding: 10px;
+  }
+  .popup-project-3 {
+    padding: 10px;
+  }
+
+  .popup-content-3 {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .popup-project-4 {
+    padding: 10px;
+  }
+
+  .popup-content-4 {
+    width: 95%;
+    padding: 10px;
   }
 }

@@ -290,3 +290,103 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ------------------------------------------------------------------------
+
+
+//popup-1
+document.addEventListener("DOMContentLoaded", function () {
+  const openPopup = document.querySelector('.open-popup-1');
+  const popup = document.querySelector('.popup-project-1');
+  const closePopup = document.querySelector('.close-popup-1');
+  const allElements = document.querySelectorAll('body > *:not(.popup-project-1)');
+
+  openPopup.addEventListener('click', function (event) {
+    event.preventDefault();
+    popup.style.display = 'flex';
+    allElements.forEach(element => {
+      element.classList.add('blur-background');
+    });
+  });
+
+  closePopup.addEventListener('click', function () {
+    popup.style.display = 'none';
+    allElements.forEach(element => {
+      element.classList.remove('blur-background');
+    });
+  });
+});
+// -------------------------------------------------------------------------
+
+
+//popup-2
+document.addEventListener("DOMContentLoaded", function () {
+  const openPopup2 = document.querySelector('.open-popup-2');
+  const popup2 = document.querySelector('.popup-project-2');
+  const closePopup2 = document.querySelector('.close-popup-2');
+  const allElements2 = document.querySelectorAll('body > *:not(.popup-project-2)');
+
+  openPopup2.addEventListener('click', function (event) {
+    event.preventDefault();
+    popup2.style.display = 'flex';
+    allElements2.forEach(element => {
+      element.classList.add('blur-background');
+    });
+  });
+
+  closePopup2.addEventListener('click', function () {
+    popup2.style.display = 'none';
+    allElements2.forEach(element => {
+      element.classList.remove('blur-background');
+    });
+  });
+});
+// -------------------------------------------------------------------------
+
+
+//popup-3
+document.addEventListener("DOMContentLoaded", function () {
+  const openPopup3 = document.querySelector('.open-popup-3');
+  const popup3 = document.querySelector('.popup-project-3');
+  const closePopup3 = document.querySelector('.close-popup-3');
+  const allElements3 = document.querySelectorAll('body > *:not(.popup-project-3)');
+
+  openPopup3.addEventListener('click', function (event) {
+    event.preventDefault();
+    popup3.style.display = 'flex';
+    allElements3.forEach(element => {
+      element.classList.add('blur-background');
+    });
+  });
+
+  closePopup3.addEventListener('click', function () {
+    popup3.style.display = 'none';
+    allElements3.forEach(element => {
+      element.classList.remove('blur-background');
+    });
+  });
+});
+// -------------------------------------------------------------------------
+
+
+//popup-2
+document.addEventListener("DOMContentLoaded", function () {
+  const openPopup4 = document.querySelector('.open-popup-4');
+  const popup4 = document.querySelector('.popup-project-4');
+  const closePopup4 = document.querySelector('.close-popup-4');
+  const allElements4 = document.querySelectorAll('body > *:not(.popup-project-4)');
+
+  openPopup4.addEventListener('click', function (event) {
+    event.preventDefault();
+    popup4.style.display = 'flex';
+    allElements4.forEach(element => {
+      element.classList.add('blur-background');
+    });
+  });
+
+  closePopup4.addEventListener('click', function () {
+    popup4.style.display = 'none';
+    allElements4.forEach(element => {
+      element.classList.remove('blur-background');
+    });
+  });
+});
+// -------------------------------------------------------------------------
